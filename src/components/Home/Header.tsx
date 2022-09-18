@@ -4,7 +4,7 @@ import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-scroll'
 import Button from '../Button'
 
-export type MenuName = 'About' | 'Discover' | 'Services' | 'Sign Up'
+export type MenuName = 'Home' | 'About' | 'Discover' | 'Services' | 'Sign Up'
 
 const menuList: {
   name: MenuName
@@ -25,13 +25,18 @@ const menuList: {
 
 const Header = () => {
   const [showPopupMenu, setShowPopupMenu] = useState(false)
-  const [activeMenu, setActiveMenu] = useState<MenuName>('About')
+  const [activeMenu, setActiveMenu] = useState<MenuName>('Home')
 
   return (
     <div className="fixed top-0 z-20 w-full bg-black bg-opacity-70">
       <div className="relative z-10">
         <div className="px-6 md:px-16 py-6 flex flex-row items-center justify-between">
-          <Link to={'Hero'} smooth={true} duration={100}>
+          <Link
+            to={'Hero'}
+            smooth={true}
+            duration={100}
+            onClick={() => setActiveMenu('Home')}
+          >
             <h1 className="text-xl font-bold cursor-pointer transition-all hover:text-green-600">
               John 's Virtual Banking
             </h1>
